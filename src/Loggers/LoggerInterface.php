@@ -19,7 +19,7 @@ abstract class LoggerInterface
         return $this->minLogLevel->value <= $logLevel->value;
     }
 
-    protected function buildLogMessage($message, $logLevel, $data = null)
+    protected function buildLogMessage(string $message, LogLevel $logLevel, ?array $data = null)
     {
         $logMessage = $this->name . ": " . date("Y-m-d\TH:i:s\Z") . " [" . $logLevel->name . "] " . $message;
         if ($data !== null) {
@@ -29,9 +29,9 @@ abstract class LoggerInterface
         return $logMessage;
     }
 
-    abstract protected function logAction($message, $logLevel, $data = null);
+    abstract protected function logAction(string $message, LogLevel $logLevel, ?array $data = null);
 
-    public function log($message, $logLevel, $data = null)
+    public function log(string $message, LogLevel $logLevel, ?array $data = null)
     {
         if (!$this->enabledFor($logLevel)) {
             return;
