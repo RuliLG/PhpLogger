@@ -4,14 +4,11 @@ require_once __DIR__ . '/../LogLevel.php';
 
 abstract class AbstractLogger
 {
-    public string $name;
-
-    public LogLevel $minLogLevel;
-
-    public function __construct(string $name, LogLevel $minLogLevel)
-    {
-        $this->name = $name;
-        $this->minLogLevel = $minLogLevel;
+    public function __construct(
+        public readonly string $name,
+        public readonly LogLevel $minLogLevel
+    ) {
+        //
     }
 
     protected function enabledFor(LogLevel $logLevel): bool

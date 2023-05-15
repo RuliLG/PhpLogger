@@ -97,3 +97,10 @@ However, this problem could become a bit less painful if we implemented the queu
 
 - If time is not extra sensitive, we could just use a queue worker for each kind of logger, so Slack notifications would be handled 1 by 1, as well as the file and database logs, so there would be no locks affecting the next log.
 - If time was extra sensitive and there were more than 1 queue worker, the retry engine could retry the same logging some seconds later, when the lock may have already be released. However, in this case I would still consider implementing proper lock management or job delaying if the lock is already taken.
+
+## Tests
+This application has tests. To run them, please execute the following command:
+
+```bash
+./phpunit.phar tests
+```
