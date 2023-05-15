@@ -1,6 +1,6 @@
 <?php
 require_once __DIR__ . '/LogLevel.php';
-require_once __DIR__ . '/loggers/LoggerInterface.php';
+require_once __DIR__ . '/loggers/AbstractLogger.php';
 
 class Logger
 {
@@ -11,7 +11,7 @@ class Logger
         $this->loggers = $loggers;
     }
 
-    public function addLogger(LoggerInterface $logger)
+    public function addLogger(AbstractLogger $logger)
     {
         $this->loggers[] = $logger;
     }

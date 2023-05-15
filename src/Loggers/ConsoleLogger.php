@@ -1,9 +1,9 @@
 <?php
 
 require_once __DIR__ . '/../LogLevel.php';
-require_once __DIR__ . '/LoggerInterface.php';
+require_once __DIR__ . '/AbstractLogger.php';
 
-class ConsoleLogger extends LoggerInterface
+class ConsoleLogger extends AbstractLogger
 {
     public function __construct(LogLevel $minLogLevel)
     {

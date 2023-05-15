@@ -21,7 +21,7 @@ This is a simple exercise. So we want you to consider a few things:
 
 ## My solution
 
-The solution I've coded consists on a `Logger` class that manages all the logging of the application. This class holds different instances of `LoggerInterface`, which will ultimately allow us to create different kind of loggers for different purposes (file, e-mail, slack, console...) just by creating a class and registering it on runtime:
+The solution I've coded consists on a `Logger` class that manages all the logging of the application. This class holds different instances of `AbstractLogger`, which will ultimately allow us to create different kind of loggers for different purposes (file, e-mail, slack, console...) just by creating a class and registering it on runtime:
 
 ```php
 $logger = new Logger();
@@ -35,10 +35,10 @@ Each of these targets can have a different log level, so they will only be used 
 
 ### How to create a new logger
 
-Creating a new logger is quite easy right now. Just create a new class extending the `LoggerInterface` and implement the `protected function logAction(string $message, LogLevel $logLevel, ?array $data = null)` method:
+Creating a new logger is quite easy right now. Just create a new class extending the `AbstractLogger` and implement the `protected function logAction(string $message, LogLevel $logLevel, ?array $data = null)` method:
 
 ```php
-class ConsoleLogger extends LoggerInterface
+class ConsoleLogger extends AbstractLogger
 {
     public function __construct(LogLevel $minLogLevel)
     {

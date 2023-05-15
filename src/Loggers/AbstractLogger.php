@@ -2,7 +2,7 @@
 
 require_once __DIR__ . '/../LogLevel.php';
 
-abstract class LoggerInterface
+abstract class AbstractLogger
 {
     public string $name;
 
